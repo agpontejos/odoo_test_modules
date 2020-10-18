@@ -1,0 +1,13 @@
+#!/bin/sh
+cd /mnt/hgfs/Development/Odoo/odoo_test_modules
+if git checkout master &&
+    git fetch origin master &&
+    [ `git rev-list HEAD...origin/master --count` != 0 ] &&
+    git merge origin/master
+then
+    echo 'Updated!'
+else
+    echo 'Not updated.'
+    git pull
+    su odoo11 -c "python3 /opt/odoo11/odoo11-server/odoo-bin -c /etc/odoo11-server.conf -d test_auto_update -u all --stop-after-init"
+fi
