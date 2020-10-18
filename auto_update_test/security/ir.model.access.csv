@@ -1,0 +1,2 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_auto_update_test_auto_update_test,auto_update_test.auto_update_test,model_auto_update_test_auto_update_test,,1,0,0,0
