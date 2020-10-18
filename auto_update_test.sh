@@ -1,7 +1,16 @@
-cd /mnt/hgfs/Development/Odoo/odoo_test_modules
-if [[ `git status --porcelain` ]]; then
-  echo "Changed"
-else
-  echo "Not Changed"
-fi
+#!/bin/sh
 
+UPSTREAM=${1:-'@{u}'}
+LOCAL=$(git rev-parse @)
+REMOTE=$(git rev-parse "$UPSTREAM")
+BASE=$(git merge-base @ "$UPSTREAM")
+
+if [ $LOCAL = $REMOTE ]; then
+    echo "Up-to-date"
+elif [ $LOCAL = $BASE ]; then
+    echo "Need to pull"
+elif [ $REMOTE = $BASE ]; then
+    echo "Need to push"
+else
+    echo "Diverged"
+fi
