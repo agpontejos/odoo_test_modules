@@ -1,7 +1,7 @@
 #!/bin/sh
 cd /mnt/hgfs/Development/Odoo/odoo_test_modules
 if git fetch origin 11.0 &&
-    [ `git rev-list HEAD...origin/master --count` != 0 ] &&
+    [ `git rev-list HEAD...origin/11.0 --count` != 0 ] &&
     git merge origin/11.0
 then
     echo 'Updated!'
