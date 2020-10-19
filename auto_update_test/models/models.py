@@ -5,7 +5,7 @@ from odoo import models, fields, api
 class auto_update_test(models.Model):
     _name = 'auto_update_test.auto_update_test'
 
-    name = fields.Char()
+    name = fields.Char("Test1")
     value = fields.Integer()
     value2 = fields.Float(compute="_value_pc", store=True)
     description = fields.Text()
