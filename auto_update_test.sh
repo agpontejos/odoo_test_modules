@@ -6,8 +6,8 @@ if git fetch origin 11.0 &&
 then
     echo 'Updated!'
     git pull
-    su odoo11 -c "python3 /opt/odoo11/odoo11-server/odoo-bin -c /etc/odoo11-server.conf -d test_auto_update -u auto_update_test --stop-after-init"
-
+    su odoo11 -c "python3 /opt/odoo11/odoo11-server/odoo-bin -c /etc/odoo11-server.conf -d test_auto_update -u all --stop-after-init"
+    service odoo11-server restart
 else
     echo 'Not updated.'
 fi
